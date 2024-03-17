@@ -114,7 +114,7 @@ jobs:
 #          SCONS_CACHE_LIMIT: 8192
         run: |
           scons target='${{ matrix.target }}' platform='${{ matrix.platform }}' arch='${{ matrix.arch }}' -j2
-          ls -l project/addons/*/bin/
+          # ls -l project/addons/*/bin/
 
       # - name: Copy extra files to addon
       #   shell: sh
@@ -128,4 +128,4 @@ jobs:
         with:
           name: ${{ github.event.repository.name }}
           path: |
-            ${{ github.workspace }}/project/
+            ${{ github.workspace }}/bin/
