@@ -252,6 +252,19 @@ bool AbilitySystem::has_all_tags(TypedArray<Tag> tags_to_check) const {
     return all(tags_to_check, [this](Ref<Tag> tag) { return has_tag(tag); });
 }
 
+bool AbilitySystem::match_tag(Ref<Tag> tag_to_check) const {
+    const StringName &identifier = tag_to_check->get_identifier();
+    return any(tags, [this, &identifier](Ref<Tag> tag) { return tag->get_identifier().begins_with(identifier); });
+}
+
+bool AbilitySystem::match_some_tags(TypedArray<Tag> tags_to_check) const {
+    return any(tags_to_check, [this](Ref<Tag> tag) { return match_tag(tag); });
+}
+
+bool AbilitySystem::match_all_tags(TypedArray<Tag> tags_to_check) const {
+    return all(tags_to_check, [this](Ref<Tag> tag) { return match_tag(tag); });
+}
+
 void AbilitySystem::grant_tag(Ref<Tag> tag) {
     if (!has_tag(tag)) {
         tags.append(tag);

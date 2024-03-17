@@ -115,6 +115,9 @@ public:
     bool has_tag(Ref<Tag> tag_to_check) const;
     bool has_some_tags(TypedArray<Tag> tags_to_check) const;
     bool has_all_tags(TypedArray<Tag> tags_to_check) const;
+    bool match_tag(Ref<Tag> tag_to_check) const;
+    bool match_some_tags(TypedArray<Tag> tags_to_check) const;
+    bool match_all_tags(TypedArray<Tag> tags_to_check) const;
     void grant_tag(Ref<Tag> tag);
     void revoke_tag(Ref<Tag> tag);
 
