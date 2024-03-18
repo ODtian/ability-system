@@ -114,18 +114,18 @@ jobs:
 #          SCONS_CACHE_LIMIT: 8192
         run: |
           scons target='${{ matrix.target }}' platform='${{ matrix.platform }}' arch='${{ matrix.arch }}' -j2
-          ls -l project/addons/*/bin/
+          # ls -l project/addons/*/bin/
 
-      - name: Copy extra files to addon
-        shell: sh
-        run: |
-          for addon in ${{ github.workspace }}/project/addons/*/; do
-            cp --no-clobber '${{ github.workspace }}/README.md' '${{ github.workspace }}/LICENSE' "$addon"
-          done
+      # - name: Copy extra files to addon
+      #   shell: sh
+      #   run: |
+      #     for addon in ${{ github.workspace }}/project/addons/*/; do
+      #       cp --no-clobber '${{ github.workspace }}/README.md' '${{ github.workspace }}/LICENSE' "$addon"
+      #     done
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           name: ${{ github.event.repository.name }}
           path: |
-            ${{ github.workspace }}/project/
+            ${{ github.workspace }}/bin/
