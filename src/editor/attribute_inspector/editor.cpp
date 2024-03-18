@@ -12,7 +12,7 @@ AttributeInspectorEditor::AttributeInspectorEditor() {
     // Update resource picker
     picker->set_h_size_flags(SIZE_EXPAND_FILL);
     picker->set_base_type("Attribute");
-    picker->set_toggle_mode(true);
+    // picker->set_toggle_mode(true);
 
     // Update button
     add_button->set_text("Add +");
