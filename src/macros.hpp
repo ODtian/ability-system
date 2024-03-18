@@ -88,4 +88,4 @@
 #define is_editor_hint() Engine::get_singleton()->is_editor_hint()
 #define RANDF_RANGE(min, max) UtilityFunctions::randf_range(min, max)
 
-#define fmt(string, args...) String(string).format(variant_array(args))
+#define fmt(string, ...) String(string).format(variant_array(__VA_ARGS__))
